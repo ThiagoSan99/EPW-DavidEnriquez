@@ -42,7 +42,9 @@ public class ProductController {
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable Long id) {
+        public String delete(@PathVariable Long id) {
         service.delete(id);
+        return "Product deleted successfully";
+        //formatear a modo de json.,,,,,,,,,,,,,,,,,,,,,,,lm                    
     }
 }
