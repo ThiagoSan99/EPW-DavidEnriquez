@@ -17,7 +17,7 @@ public class CourseRequest {
     private String code;
 
     private Integer credits;
-
+    private Long instructorId;
     // Constructors
     public CourseRequest() {
     }
@@ -60,5 +60,13 @@ public class CourseRequest {
 
     public void setCredits(Integer credits) {
         this.credits = credits;
+    }
+    //gett set ins
+    public Long getInstructorId() {
+    return instructorId;
+    }
+
+    public void setInstructorId(Long instructorId) {
+        this.instructorId = instructorId;
     }
 }

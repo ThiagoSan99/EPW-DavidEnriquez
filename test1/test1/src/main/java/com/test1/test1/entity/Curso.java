@@ -51,6 +51,10 @@ public class Curso {
         this.updatedAt = LocalDateTime.now();
     }
 
+    @ManyToOne
+    @JoinColumn(name = "instructor_id")
+    private Instructor instructor;
+
     // Getters and Setters
     public Long getId() {
         return id;
@@ -98,5 +102,13 @@ public class Curso {
 
     public LocalDateTime getUpdatedAt() {
         return updatedAt;
+    }
+    //instructor getter setter
+    public Instructor getInstructor() {
+    return instructor;
+    }
+
+    public void setInstructor(Instructor instructor) {
+        this.instructor = instructor;
     }
 }
