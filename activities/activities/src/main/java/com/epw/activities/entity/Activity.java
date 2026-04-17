@@ -2,7 +2,15 @@ package com.epw.activities.entity;
 
 import java.time.Instant;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.HashSet;
+
+import jakarta.persistence.OneToMany;
+import java.util.List;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.*;
+import java.util.Set;
+
 @Entity
 @Table(name = "activity")
 public class Activity {
@@ -32,7 +40,28 @@ public class Activity {
 
     @Column(nullable = false)
     private Instant updatedAt;
-    
+
+    @OneToMany(mappedBy = "activity", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Reminder> reminders = new ArrayList<>();
+
+    @OneToOne(mappedBy = "activity", cascade = CascadeType.ALL, orphanRemoval = true)
+    private ActivityDetail detail;
+
+
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
+
+    //RELACIÓN TAGS
+    @ManyToMany
+        @JoinTable(
+            name = "activity_tag",
+            joinColumns = @JoinColumn(name = "activity_id"),
+            inverseJoinColumns = @JoinColumn(name = "tag_id"))
+
+    private Set<Tag> tags = new HashSet<>();
+
+        
     @PrePersist
     void onCreate() {
         Instant now = Instant.now();
@@ -115,4 +144,40 @@ public class Activity {
     public void setUpdatedAt(Instant updatedAt) {
         this.updatedAt = updatedAt;
     }
+
+    //getter setter category
+
+    public Category getCategory() {
+    return category;
+    }
+    public void setCategory(Category category) {
+    this.category = category;
+    }
+
+    //getters y setter reminder
+
+    public List<Reminder> getReminders() {
+    return reminders;
+    }
+    public void setReminders(List<Reminder> reminders) {
+    this.reminders = reminders;
+    }
+
+    //Getters y setters de details
+    public ActivityDetail getDetail() {
+    return detail;
+    }
+
+    public void setDetail(ActivityDetail detail) {
+    this.detail = detail;
+    }
+
+    //getter y setter tag
+    public Set<Tag> getTags() {
+        return tags;
+    }
+    public void setTags(Set<Tag> tags) {
+        this.tags = tags;
+    }
+
 }
