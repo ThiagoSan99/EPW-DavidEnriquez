@@ -1,0 +1,14 @@
+package com.epw.activities.dto;
+
+public class MenuOption {
+    private String name;
+    private String content;
+
+    public MenuOption(String name, String content) {
+        this.name = name;
+        this.content = content;
+    }
+
+    public String getName() { return name; }
+    public String getContent() { return content; }
+}
