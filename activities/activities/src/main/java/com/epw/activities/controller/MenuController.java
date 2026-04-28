@@ -1,30 +1,24 @@
 package com.epw.activities.controller;
 
-import java.util.List;
-
+import com.epw.activities.entity.Menu;
+import com.epw.activities.entity.Role;
+import com.epw.activities.service.MenuService;
 import org.springframework.web.bind.annotation.*;
 
-import com.epw.activities.dto.MenuOption;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/menu")
 public class MenuController {
 
+    private final MenuService service;
+
+    public MenuController(MenuService service) {
+        this.service = service;
+    }
+
     @GetMapping("/{role}")
-    public List<MenuOption> getMenu(@PathVariable String role) {
-
-        if (role.equals("ADMIN")) {
-            return List.of(
-                new MenuOption("customers", "Customers"),
-                new MenuOption("departaments", "Departaments"),
-                new MenuOption("tmo", "TMO"),
-                new MenuOption("about", "About")
-            );
-        }
-
-        return List.of(
-            new MenuOption("tmo", "TMO"),
-            new MenuOption("about", "About")
-        );
+    public List<Menu> getMenu(@PathVariable Role role) {
+        return service.getMenuByRole(role);
     }
 }
