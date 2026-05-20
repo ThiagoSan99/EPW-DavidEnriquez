@@ -135,3 +135,18 @@ export async function getCategories(): Promise<CategoryData[]> {
   const res = await request<CategoryData[]>("/categorias");
   return res.data;
 }
+
+export interface CreateTicketRequest {
+  titulo: string;
+  descripcion: string;
+  prioridad: string;
+  categoriaId?: number | null;
+}
+
+export async function createTicket(data: CreateTicketRequest): Promise<TicketData> {
+  const res = await request<TicketData>("/tickets", {
+    method: "POST",
+    body: JSON.stringify(data),
+  });
+  return res.data;
+}

@@ -114,9 +114,14 @@ export default function TicketsPage() {
   return (
     <ProtectedRoute>
       <div className={styles.container}>
-        <button onClick={() => router.push("/dashboard")} className={styles.backButton}>
-          &larr; Volver al Dashboard
-        </button>
+        <div className={styles.header}>
+          <button onClick={() => router.push("/dashboard")} className={styles.backButton}>
+            &larr; Volver al Dashboard
+          </button>
+          <button onClick={() => router.push("/tickets/nuevo")} className={styles.createButton}>
+            + Nuevo Ticket
+          </button>
+        </div>
         <h1 className={styles.title}>Tickets</h1>
 
         {error && <div className={styles.error}>{error}</div>}
