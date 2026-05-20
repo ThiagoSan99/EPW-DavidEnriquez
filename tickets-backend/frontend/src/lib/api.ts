@@ -100,3 +100,38 @@ export async function getProfile(): Promise<LoginResponse["user"]> {
   const d = res.data;
   return { id: d.id, email: d.email, nombre: d.nombre };
 }
+
+export interface TicketData {
+  id: number;
+  titulo: string;
+  descripcion: string;
+  status: string;
+  prioridad: string;
+  categoriaId: number | null;
+  categoriaNombre: string | null;
+  creadoPorId: number;
+  creadoPorUsername: string;
+  asignadoAId: number | null;
+  asignadoAUsername: string | null;
+  asignadoANombreCompleto: string | null;
+  createdAt: string;
+  updatedAt: string;
+  closedAt: string | null;
+}
+
+export interface CategoryData {
+  id: number;
+  nombre: string;
+  descripcion: string;
+  createdAt: string;
+}
+
+export async function getTickets(): Promise<TicketData[]> {
+  const res = await request<TicketData[]>("/tickets");
+  return res.data;
+}
+
+export async function getCategories(): Promise<CategoryData[]> {
+  const res = await request<CategoryData[]>("/categorias");
+  return res.data;
+}

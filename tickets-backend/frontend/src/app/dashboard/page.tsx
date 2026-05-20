@@ -15,7 +15,7 @@ export default function DashboardPage() {
 
   return (
     <ProtectedRoute>
-      <div style={{ padding: "2rem", maxWidth: 600, margin: "0 auto" }}>
+      <div style={{ padding: "2rem", maxWidth: 700, margin: "0 auto" }}>
         <header
           style={{
             display: "flex",
@@ -25,19 +25,34 @@ export default function DashboardPage() {
           }}
         >
           <h1>Dashboard</h1>
-          <button
-            onClick={handleLogout}
-            style={{
-              padding: "0.5rem 1rem",
-              border: "1px solid #555",
-              borderRadius: 4,
-              background: "transparent",
-              color: "var(--foreground)",
-              cursor: "pointer",
-            }}
-          >
-            Cerrar sesión
-          </button>
+          <div style={{ display: "flex", gap: "0.5rem" }}>
+            <button
+              onClick={() => router.push("/tickets")}
+              style={{
+                padding: "0.5rem 1rem",
+                border: "1px solid #4a90d9",
+                borderRadius: 4,
+                background: "transparent",
+                color: "#4a90d9",
+                cursor: "pointer",
+              }}
+            >
+              Ver tickets
+            </button>
+            <button
+              onClick={handleLogout}
+              style={{
+                padding: "0.5rem 1rem",
+                border: "1px solid #555",
+                borderRadius: 4,
+                background: "transparent",
+                color: "var(--foreground)",
+                cursor: "pointer",
+              }}
+            >
+              Cerrar sesión
+            </button>
+          </div>
         </header>
 
         <section

@@ -1,0 +1,264 @@
+.container {
+  padding: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.backButton {
+  background: none;
+  border: none;
+  color: var(--foreground);
+  cursor: pointer;
+  font-size: 0.875rem;
+  padding: 0.4rem 0;
+  margin-bottom: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.backButton:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.error {
+  background: #5c1a1a;
+  color: #ff8a8a;
+  border: 1px solid #8a2a2a;
+  border-radius: 4px;
+  padding: 0.6rem 0.75rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.select,
+.input {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #555;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--foreground);
+  font-size: 0.875rem;
+  flex: 1 1 180px;
+  min-width: 140px;
+}
+
+.select option {
+  background: var(--background);
+}
+
+.input:focus,
+.select:focus {
+  outline: none;
+  border-color: #4a90d9;
+}
+
+.count {
+  font-size: 0.8rem;
+  color: #888;
+  margin-bottom: 0.75rem;
+}
+
+/* ---------- Tabla (escritorio) ---------- */
+
+.tableWrapper {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.table thead {
+  display: none;
+}
+
+.table th,
+.table td {
+  text-align: left;
+  padding: 0.6rem 0.5rem;
+  border-bottom: 1px solid #333;
+  white-space: nowrap;
+}
+
+.table th {
+  font-weight: 600;
+  color: #aaa;
+  border-bottom: 2px solid #444;
+}
+
+.titulo {
+  max-width: 260px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.empty {
+  text-align: center;
+  color: #888;
+  padding: 2rem !important;
+}
+
+/* ---------- Badges ---------- */
+
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.status-abierto {
+  background: #1a3a5c;
+  color: #8ab8ff;
+}
+
+.status-en_proceso {
+  background: #3a2e1a;
+  color: #ffd08a;
+}
+
+.status-pendiente {
+  background: #3a1a2e;
+  color: #ff8ad0;
+}
+
+.status-resuelto {
+  background: #1a3a2e;
+  color: #8affb8;
+}
+
+.status-cerrado {
+  background: #2a2a2a;
+  color: #aaa;
+}
+
+.prioridad-critica {
+  background: #5c1a1a;
+  color: #ff6b6b;
+}
+
+.prioridad-alta {
+  background: #5c2e1a;
+  color: #ffb86b;
+}
+
+.prioridad-media {
+  background: #2a3a1a;
+  color: #b8ff6b;
+}
+
+.prioridad-baja {
+  background: #2a2a3a;
+  color: #8a8aff;
+}
+
+/* ---------- Cards (móvil) ---------- */
+
+.cards {
+  display: none;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.card {
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.cardTitulo {
+  font-size: 0.95rem;
+  font-weight: 600;
+  flex: 1;
+}
+
+.cardBadges {
+  display: flex;
+  gap: 0.4rem;
+  flex-shrink: 0;
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+}
+
+.cardRow {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.cardLabel {
+  color: #888;
+  min-width: 80px;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .tableWrapper {
+    display: none;
+  }
+
+  .cards {
+    display: flex;
+  }
+
+  .filters {
+    flex-direction: column;
+  }
+
+  .select,
+  .input {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+}
+
+@media (min-width: 769px) {
+  .table thead {
+    display: table-header-group;
+  }
+}
