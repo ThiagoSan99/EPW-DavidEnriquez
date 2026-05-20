@@ -50,6 +50,7 @@ public class TicketServiceImpl implements TicketService {
                 .prioridad(request.getPrioridad())
                 .categoria(category)
                 .creadoPor(creator)
+                .asignadoA(creator)
                 .build();
 
         return mapToResponse(ticketRepository.save(ticket));
