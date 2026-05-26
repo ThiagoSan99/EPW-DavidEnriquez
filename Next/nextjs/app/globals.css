@@ -1,0 +1,24 @@
+/* app/globals.css */
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+main{
+  flex: 1;
+}
+h1 {
+  color: #111827;
+}
+a {
+  color: #0070f3;
+}

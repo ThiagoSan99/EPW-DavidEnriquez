@@ -1,0 +1,49 @@
+/* app/components/Footer.module.css */
+.footer {
+  background: #0f172a;
+  color: white;
+  padding: 40px 20px;
+  margin-top: 50px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer-content {
+  max-width: 1000px;
+  margin: auto;
+  text-align: center;
+}
+
+.footer h3 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: #38bdf8;
+}
+
+.footer p {
+  color: #cbd5e1;
+  margin: 8px 0;
+}
+
+.socials {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.socials a {
+  color: #67e8f9;
+  text-decoration: none;
+  transition: 0.3s;
+  font-weight: bold;
+}
+
+.socials a:hover {
+  color: white;
+}
+
+.copy {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
