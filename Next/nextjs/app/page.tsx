@@ -7,7 +7,5 @@ export default function HomePage() {
       <h1>Hola, soy mar</h1>
       <p>Bienvenido a mi portafolio construido con Next.js.</p>
     </main>
-    
-    
   );
 }
